@@ -1,3 +1,7 @@
+import hashlib
+import json
+from time import time
+
 class Blockchain(object):
 
     def __init__(self):
@@ -9,10 +13,16 @@ class Blockchain(object):
         pass
 
     # Adds a new transaction to the list of transactions
-    def new_transaction(self):
-        pass
+    def new_transaction(self, sender, recipient, amount):
+        self.current_transactions.append({
+            'sender': sender,
+            'recipient': recipient,
+            'amount': amount
+        })
 
-    # Hashes a Block
+        # index of block that will hold this transaction
+        return self.last_block['index'] + 1
+
     @staticmethod
     def hash(block):
         pass
